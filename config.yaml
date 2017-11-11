@@ -1,0 +1,14 @@
+variables:
+  AUDIT_KUBE_CLUSTER_RULES:
+      required: false
+      type: array
+      default:
+        - cis-dil-benchmark-1-5-3
+        - cis-docker-benchmark-2-1
+        - cis-kubernetes-benchmark-1-1-1
+
+  FILTERED_OBJECTS:
+    description: "JSON object of string or regex of aws objects to include or exclude and tag in audit"
+    required: false
+    type: string
+    default:

@@ -1,0 +1,7 @@
+# Use this file to customise the output of the html report you will receive for this audit.
+# Supply a rule name followed by any information you wish to receive in the given format:
+
+# rule-name-1:
+#  "AWS Object ID": "__OBJECT__~https://console.aws.amazon.com/ec2/v2/home?region=+__OBJECT__.violations.__RULE__.region+#SecurityGroups:search=+__OBJECT__+;sort=desc:tag:Name"
+#  "AWS Region": "+__OBJECT__.violations.__RULE__.region+"
+#  "AWS Tags": "__TAGS__"

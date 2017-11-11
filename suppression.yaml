@@ -1,0 +1,14 @@
+# Use this file to suppress any object should you not wish to receive an alert about it.
+# Any suppressed object will not trigger a violation until the specified date.
+
+# put-rule-name-1:
+#   - put-your-object-id-here-1: ""
+#   - put-your-object-id-here-2: "2017-01-10T00:00Z"
+# put-rule-name-1:
+#   - put-your-object-id-here-1: ""
+#   - put-your-object-id-here-2: "2017-01-10T00:00Z"
+
+
+# Suppression times (optional) use ISO date formats according to this template:
+#
+# YYYY-MM-DDTHH:mm:ss.sssZ
