@@ -35,7 +35,7 @@ coreo_agent_audit_rule 'cis-kubernetes-benchmark-1-1-1' do
     description 'Do not allow privileged containers.\n\nRationale: The privileged container has all the system capabilities, and it also lifts all the limitations enforced by the device cgroup controller. In other words, the container can then do almost everything that the host can do. This flag exists to allow special use-cases, like running Docker within Docker and hence should be avoided for production workloads.'
     category 'Security'
     suggested_action 'Edit the /etc/kubernetes/config file on the master node and set the KUBE_ALLOW_PRIV parameter to "--allow-privileged=false"'
-    level 'hight'
+    level 'high'
     selectors ['check-kubectl']
     timeout 120
     control 'cis-kubernetes-benchmark-1.1.1' do
@@ -59,7 +59,7 @@ coreo_agent_audit_rule 'cis-docker-benchmark-2-1' do
     description 'By default, all network traffic is allowed between containers on the same host. If not desired, restrict all the intercontainer communication. Link specific containers together that require inter communication.'
     category 'Security'
     suggested_action 'Run the docker in daemon mode and pass "--icc=false" as argument.'
-    level 'low'
+    level 'high'
     selectors ['check-docker']
     timeout 120
     control 'cis-docker-benchmark-2.1' do
@@ -85,7 +85,7 @@ coreo_agent_audit_rule 'cis-dil-benchmark-1-5-3' do
     description 'Address space layout randomization (ASLR) is an exploit mitigation technique which randomly arranges the address space of key data areas of a process.\n\nRationale: Randomly placing virtual memory regions will make it difficult to write memory page exploits as the memory placement will be consistently shifting.'
     category 'Security'
     suggested_action 'Set "kernel.randomize_va_space = 2" in the /etc/sysctl.conf file'
-    level 'low'
+    level 'high'
     selectors ['check-linux']
     timeout 120
     control 'cis-dil-benchmark-1.5.3' do
