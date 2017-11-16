@@ -28,25 +28,25 @@ coreo_agent_selector_rule 'check-linux' do
     end
 end
 
-coreo_agent_audit_rule 'cis-kubernetes-benchmark-1-1-1' do
+coreo_agent_audit_rule 'cis-kubernetes-benchmark-2-1-1' do
     action :define
     link 'http://kb.cloudcoreo.com/'
     display_name 'Ensure that the --allow-privileged argument is set to false'
     description 'Do not allow privileged containers.\n\nRationale: The privileged container has all the system capabilities, and it also lifts all the limitations enforced by the device cgroup controller. In other words, the container can then do almost everything that the host can do. This flag exists to allow special use-cases, like running Docker within Docker and hence should be avoided for production workloads.'
     category 'Security'
-    suggested_action 'Edit the /etc/kubernetes/config file on the master node and set the KUBE_ALLOW_PRIV parameter to "--allow-privileged=false"'
+    suggested_action 'Run kubelet with "--allow-privileged=false"'
     level 'high'
     selectors ['check-kubectl']
     timeout 120
-    control 'cis-kubernetes-benchmark-1.1.1' do
+    control 'cis-kubernetes-benchmark-2.1.1' do
         title 'Ensure that the --allow-privileged argument is set to false'
         desc "Do not allow privileged containers.\n\nRationale: The privileged container has all the system capabilities, and it also lifts all the limitations enforced by the device cgroup controller. In other words, the container can then do almost everything that the host can do. This flag exists to allow special use-cases, like running Docker within Docker and hence should be avoided for production workloads."
         impact 1.0
-        
-        tag cis: 'kubernetes:1.1.1'
+
+        tag cis: 'kubernetes:2.1.1'
         tag level: 1
-        
-        describe processes('kube-apiserver').commands.to_s do
+
+        describe processes('kubelet').commands.to_s do
             it { should match(/--allow-privileged=false/) }
         end
     end
