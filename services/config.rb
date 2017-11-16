@@ -104,6 +104,6 @@ coreo_agent_audit_rule 'cis-dil-benchmark-1-5-3' do
 
   coreo_agent_rule_runner 'audit-kube-cluster-rules' do
     action :run
-    rules ${AUDIT_KUBE_CLUSTER_RULES}
+    rules ${AUDIT_KUBE_CLUSTER_ALERT_LIST}
     filter(${FILTERED_OBJECTS}) if ${FILTERED_OBJECTS}
   end
