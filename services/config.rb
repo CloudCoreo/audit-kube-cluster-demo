@@ -1,8 +1,8 @@
-coreo_agent_selector_rule 'check-kubectl' do
+coreo_agent_selector_rule 'check-kubelet' do
     action :define
     timeout 30
-    control 'check-kubectl' do
-        describe command('kubectl') do
+    control 'check-kubelet' do
+        describe command('kubelet') do
             it { should exist }
         end
     end
@@ -36,7 +36,7 @@ coreo_agent_audit_rule 'cis-kubernetes-benchmark-2-1-1' do
     category 'Security'
     suggested_action 'Run kubelet with "--allow-privileged=false"'
     level 'high'
-    selectors ['check-kubectl']
+    selectors ['check-kubelet']
     timeout 120
     control 'cis-kubernetes-benchmark-2.1.1' do
         title 'Ensure that the --allow-privileged argument is set to false'
